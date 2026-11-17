@@ -101,4 +101,105 @@ button:active {
   margin-top: 12px;
 }
 
-.features {
+.features {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.feature {
+  background: #111722;
+  border: 1px solid #273044;
+  border-radius: 12px;
+  padding: 17px;
+}
+
+.feature strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.feature span {
+  color: #9299aa;
+  font-size: 13px;
+}
+
+#status {
+  margin-top: 15px;
+  color: #bda8ff;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 45px;
+  color: #687184;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">⚡ ClipForge AI</div>
+  <div class="badge">AI CLIPPER</div>
+</header>
+
+<h1>Turn long videos into viral shorts.</h1>
+<p>Transform long-form content into vertical short-form videos.</p>
+
+<div class="card">
+<label>YouTube Video URL</label>
+<input id="videoUrl" type="url" placeholder="Paste your YouTube link here...">
+
+<label>Or upload a video</label>
+<input id="videoFile" type="file" accept="video/*">
+
+<label>Clip Duration</label>
+<select id="duration">
+<option>30 seconds</option>
+<option>40 seconds</option>
+<option>45 seconds</option>
+<option>60 seconds</option>
+</select>
+
+<label>Video Format</label>
+<select id="format">
+<option>9:16 Vertical Shorts</option>
+<option>16:9 Landscape</option>
+</select>
+
+<button onclick="startProcessing()">Generate Viral Clips ⚡</button>
+<p id="status"></p>
+</div>
+
+<div class="features">
+<div class="feature"><strong>🎯 AI Detection</strong><span>Find interesting moments.</span></div>
+<div class="feature"><strong>📱 9:16 Format</strong><span>Vertical short videos.</span></div>
+<div class="feature"><strong>✂️ Smart Clipping</strong><span>Short-form editing.</span></div>
+<div class="feature"><strong>⬇️ Export</strong><span>Download finished clips.</span></div>
+</div>
+
+<footer>CLIPFORGE AI • VIDEO CREATION STUDIO</footer>
+</div>
+
+<script>
+function startProcessing() {
+  const url = document.getElementById("videoUrl").value;
+  const file = document.getElementById("videoFile").files[0];
+  const status = document.getElementById("status");
+
+  if (!url && !file) {
+    status.textContent = "Please enter a video URL or upload a video.";
+    return;
+  }
+
+  status.textContent = "Interface ready. Video processing engine will be connected next.";
+}
+</script>
+
+</body>
+</html>
